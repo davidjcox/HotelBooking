@@ -17,7 +17,6 @@ namespace HotelBooking.PageObjects
         public BasePage(IWebDriver driver, WebDriverWait wait)
         {
             _driver = driver;
-            _driver.Manage().Window.FullScreen();
             _wait = wait;
         }
 
@@ -29,7 +28,7 @@ namespace HotelBooking.PageObjects
         {
             _driver.Navigate().GoToUrl(url);
 
-            
+            _driver.Manage().Window.FullScreen();
         }
 
         /// <summary>

@@ -37,8 +37,7 @@ namespace HotelBooking.StepDefinitions
             }
             catch (Exception exception)
             {
-                TestReport.extentBDDTest.Log(AventStack.ExtentReports.Status.Error, exception); 
-                Console.WriteLine(exception);
+                HandleRuntimeException(exception);
             }
 
             Assert.IsTrue(_bookingPage.IsExpectedPage(_bookingPage.pageSentinel));
@@ -68,8 +67,7 @@ namespace HotelBooking.StepDefinitions
             }
             catch (Exception exception)
             {
-                TestReport.extentBDDTest.Log(AventStack.ExtentReports.Status.Error, exception);
-                Console.WriteLine(exception);
+                HandleRuntimeException(exception);
             }
         }
 
@@ -86,8 +84,7 @@ namespace HotelBooking.StepDefinitions
             }
             catch (Exception exception)
             {
-                TestReport.extentBDDTest.Log(AventStack.ExtentReports.Status.Error, exception);
-                Console.WriteLine(exception);
+                HandleRuntimeException(exception);
             }
 
             Assert.IsNotNull(createdBooking);
@@ -117,8 +114,7 @@ namespace HotelBooking.StepDefinitions
             }
             catch (Exception exception)
             {
-                TestReport.extentBDDTest.Log(AventStack.ExtentReports.Status.Error, exception);
-                Console.WriteLine(exception);
+                HandleRuntimeException(exception);
             }
         }
 
@@ -135,8 +131,7 @@ namespace HotelBooking.StepDefinitions
             }
             catch (Exception exception)
             {
-                TestReport.extentBDDTest.Log(AventStack.ExtentReports.Status.Error, exception);
-                Console.WriteLine(exception);
+                HandleRuntimeException(exception);
             }
 
             Assert.IsNull(createdBooking);
@@ -168,8 +163,7 @@ namespace HotelBooking.StepDefinitions
                 }
                 catch (Exception exception)
                 {
-                    TestReport.extentBDDTest.Log(AventStack.ExtentReports.Status.Error, exception);
-                    Console.WriteLine(exception);
+                    HandleRuntimeException(exception);
                 }
             }
             _scenarioContext.Add("Bookings", referenceBookings);
@@ -191,8 +185,7 @@ namespace HotelBooking.StepDefinitions
                 }
                 catch (Exception exception)
                 {
-                    TestReport.extentBDDTest.Log(AventStack.ExtentReports.Status.Error, exception);
-                    Console.WriteLine(exception);
+                    HandleRuntimeException(exception);
                 }
 
                 Assert.IsNotNull(createdBooking);
@@ -224,8 +217,7 @@ namespace HotelBooking.StepDefinitions
                 }
                 catch (Exception exception)
                 {
-                    TestReport.extentBDDTest.Log(AventStack.ExtentReports.Status.Error, exception); 
-                    Console.WriteLine(exception);
+                    HandleRuntimeException(exception);
                 }
             }
         }
@@ -246,8 +238,7 @@ namespace HotelBooking.StepDefinitions
                 }
                 catch (Exception exception)
                 {
-                    TestReport.extentBDDTest.Log(AventStack.ExtentReports.Status.Error, exception); 
-                    Console.WriteLine(exception);
+                    HandleRuntimeException(exception);
                 }
 
                 Assert.IsNull(createdBooking);
@@ -269,8 +260,7 @@ namespace HotelBooking.StepDefinitions
             }
             catch (Exception exception)
             {
-                TestReport.extentBDDTest.Log(AventStack.ExtentReports.Status.Error, exception); 
-                Console.WriteLine(exception);
+                HandleRuntimeException(exception);
             }
         }
 
@@ -287,8 +277,7 @@ namespace HotelBooking.StepDefinitions
             }
             catch (Exception exception)
             {
-                TestReport.extentBDDTest.Log(AventStack.ExtentReports.Status.Error, exception); 
-                Console.WriteLine(exception);
+                HandleRuntimeException(exception);
             }
 
             Assert.IsNull(firstCreatedBooking);
@@ -309,8 +298,7 @@ namespace HotelBooking.StepDefinitions
             }
             catch (Exception exception)
             {
-                TestReport.extentBDDTest.Log(AventStack.ExtentReports.Status.Error, exception); 
-                Console.WriteLine(exception);
+                HandleRuntimeException(exception);
             }
         }
 
@@ -327,8 +315,7 @@ namespace HotelBooking.StepDefinitions
             }
             catch (Exception exception)
             {
-                TestReport.extentBDDTest.Log(AventStack.ExtentReports.Status.Error, exception); 
-                Console.WriteLine(exception);
+                HandleRuntimeException(exception);
             }
 
             Assert.IsNull(midstCreatedBooking);
@@ -349,8 +336,7 @@ namespace HotelBooking.StepDefinitions
             }
             catch (Exception exception)
             {
-                TestReport.extentBDDTest.Log(AventStack.ExtentReports.Status.Error, exception); 
-                Console.WriteLine(exception);
+                HandleRuntimeException(exception);
             }
         }
 
@@ -367,8 +353,7 @@ namespace HotelBooking.StepDefinitions
             }
             catch (Exception exception)
             {
-                TestReport.extentBDDTest.Log(AventStack.ExtentReports.Status.Error, exception); 
-                Console.WriteLine(exception);
+                HandleRuntimeException(exception);
             }
 
             Assert.IsNull(lastCreatedBooking);
@@ -395,8 +380,7 @@ namespace HotelBooking.StepDefinitions
                 }
                 catch (Exception exception)
                 {
-                    TestReport.extentBDDTest.Log(AventStack.ExtentReports.Status.Error, exception); 
-                    Console.WriteLine(exception);
+                    HandleRuntimeException(exception);
                 }
             }
 
@@ -415,8 +399,7 @@ namespace HotelBooking.StepDefinitions
             }
             catch (Exception exception)
             {
-                TestReport.extentBDDTest.Log(AventStack.ExtentReports.Status.Error, exception); 
-                Console.WriteLine(exception);
+                HandleRuntimeException(exception);
             }
 
             foreach (Booking createdBooking in createdBookings)
@@ -446,8 +429,7 @@ namespace HotelBooking.StepDefinitions
             }
             catch (Exception exception)
             {
-                TestReport.extentBDDTest.Log(AventStack.ExtentReports.Status.Error, exception); 
-                Console.WriteLine(exception);
+                HandleRuntimeException(exception);
             }
 
             foreach (Booking createdBooking in createdBookings)
@@ -468,8 +450,7 @@ namespace HotelBooking.StepDefinitions
             }
             catch (Exception exception)
             {
-                TestReport.extentBDDTest.Log(AventStack.ExtentReports.Status.Error, exception); 
-                Console.WriteLine(exception);
+                HandleRuntimeException(exception);
             }
 
             Assert.IsNull(createdBookings);
@@ -527,6 +508,12 @@ namespace HotelBooking.StepDefinitions
         public static void FinalizeTestReport()
         {
             TestReport.FinalizeTestReport();
+        }
+
+        private static void HandleRuntimeException(Exception exception)
+        {
+            TestReport.extentBDDTest.Log(AventStack.ExtentReports.Status.Error, exception);
+            Console.WriteLine(exception);
         }
 
         public BookAHotelRoomSteps(FeatureContext featureContext,
