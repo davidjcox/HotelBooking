@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
-  <WebDriverType>firefox</WebDriverType>
+  <WebDriverType>edge</WebDriverType>
   <!-- options: 'chrome', 'firefox', 'edge' -->
   <WaitTimeoutInSeconds>30</WaitTimeoutInSeconds>
   <!-- duration of wait timeout for element(s) finding -->
