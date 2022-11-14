@@ -29,7 +29,7 @@ namespace HotelBooking.StepDefinitions
         private readonly uint _numberOfDuplicateBookings; 
 
         [Given(@"the user opens the Hotel booking form")]
-        public void GivenTheUserOpensTheHotelBookingForm()
+        private void GivenTheUserOpensTheHotelBookingForm()
         {
             try
             {
@@ -47,7 +47,7 @@ namespace HotelBooking.StepDefinitions
 
 
         [When(@"the user creates a valid booking")]
-        public void WhenTheUserCreatesAValidBooking(Table table)
+        private void WhenTheUserCreatesAValidBooking(Table table)
         {
             Booking referenceBooking = table.CreateInstance<Booking>();
 
@@ -73,7 +73,7 @@ namespace HotelBooking.StepDefinitions
 
 
         [Then(@"the booking should be added to the booking listing")]
-        public void ThenTheBookingShouldBeAddedToTheBookingListing()
+        private void ThenTheBookingShouldBeAddedToTheBookingListing()
         {
             Booking referenceBooking = (Booking)_scenarioContext["Booking"];
             Booking createdBooking = new Booking();
@@ -101,7 +101,7 @@ namespace HotelBooking.StepDefinitions
 
 
         [When(@"the user deletes that newly created booking")]
-        public void WhenTheUserDeletesThatNewlyCreatedBooking()
+        private void WhenTheUserDeletesThatNewlyCreatedBooking()
         {
             Booking referenceBooking = (Booking)_scenarioContext["Booking"];
             Booking createdBooking = new Booking();
@@ -120,7 +120,7 @@ namespace HotelBooking.StepDefinitions
 
 
         [Then(@"the newly-created booking should be removed from the booking listing")]
-        public void ThenTheNewly_CreatedBookingShouldBeRemovedFromTheBookingListing()
+        private void ThenTheNewly_CreatedBookingShouldBeRemovedFromTheBookingListing()
         {
             Booking referenceBooking = (Booking)_scenarioContext["Booking"];
             Booking createdBooking = new Booking();
@@ -139,7 +139,7 @@ namespace HotelBooking.StepDefinitions
 
 
         [When(@"the user creates multiple valid bookings")]
-        public void WhenTheUserCreatesMultipleValidBookings(Table table)
+        private void WhenTheUserCreatesMultipleValidBookings(Table table)
         {
             IEnumerable<Booking> referenceBookings = table.CreateSet<Booking>();
 
@@ -171,7 +171,7 @@ namespace HotelBooking.StepDefinitions
         
         
         [Then(@"all newly-created bookings should be added to the booking listing")]
-        public void ThenAllNewly_CreatedBookingsShouldBeAddedToTheBookingListing()
+        private void ThenAllNewly_CreatedBookingsShouldBeAddedToTheBookingListing()
         {
             IEnumerable<Booking> referenceBookings = (IEnumerable<Booking>)_scenarioContext["Bookings"];
 
@@ -203,7 +203,7 @@ namespace HotelBooking.StepDefinitions
 
 
         [When(@"the user deletes those newly-created valid bookings")]
-        public void WhenTheUserDeletesThoseNewly_CreatedValidBookings()
+        private void WhenTheUserDeletesThoseNewly_CreatedValidBookings()
         {
             IEnumerable<Booking> referenceBookings = (IEnumerable<Booking>)_scenarioContext["Bookings"];
             
@@ -224,7 +224,7 @@ namespace HotelBooking.StepDefinitions
 
 
         [Then(@"all newly-created bookings should be removed from the booking listing")]
-        public void ThenAllNewly_CreatedBookingsShouldBeRemovedFromTheBookingListing()
+        private void ThenAllNewly_CreatedBookingsShouldBeRemovedFromTheBookingListing()
         {
             IEnumerable<Booking> referenceBookings = (IEnumerable<Booking>)_scenarioContext["Bookings"];
 
@@ -247,7 +247,7 @@ namespace HotelBooking.StepDefinitions
 
 
         [When(@"the user deletes the first booking of multiple newly-created bookings")]
-        public void WhenTheUserDeletesTheFirstBookingOfMultipleNewly_CreatedBookings()
+        private void WhenTheUserDeletesTheFirstBookingOfMultipleNewly_CreatedBookings()
         {
             Booking firstReferenceBooking = (Booking)_scenarioContext["firstBooking"];
             Booking firstCreatedBooking = new Booking();
@@ -266,7 +266,7 @@ namespace HotelBooking.StepDefinitions
 
 
         [Then(@"the first booking of the multiple newly-created bookings should be removed from the booking listing")]
-        public void ThenTheFirstBookingOfTheMultipleNewly_CreatedBookingsShouldBeRemovedFromTheBookingListing()
+        private void ThenTheFirstBookingOfTheMultipleNewly_CreatedBookingsShouldBeRemovedFromTheBookingListing()
         {
             Booking firstReferenceBooking = (Booking)_scenarioContext["firstBooking"];
             Booking firstCreatedBooking = new Booking();
@@ -285,7 +285,7 @@ namespace HotelBooking.StepDefinitions
 
 
         [When(@"the user deletes one of the bookings in the midst of multiple newly-created bookings")]
-        public void WhenTheUserDeletesOneOfTheBookingsInTheMidstOfMultipleNewly_CreatedBookings()
+        private void WhenTheUserDeletesOneOfTheBookingsInTheMidstOfMultipleNewly_CreatedBookings()
         {
             Booking midstReferenceBooking = (Booking)_scenarioContext["midstBooking"];
             Booking midstCreatedBooking = new Booking();
@@ -304,7 +304,7 @@ namespace HotelBooking.StepDefinitions
 
 
         [Then(@"the booking in the midst of the multiple newly-created bookings should be removed from the booking listing")]
-        public void ThenTheBookingInTheMidstOfTheMultipleNewly_CreatedBookingsShouldBeRemovedFromTheBookingListing()
+        private void ThenTheBookingInTheMidstOfTheMultipleNewly_CreatedBookingsShouldBeRemovedFromTheBookingListing()
         {
             Booking midstReferenceBooking = (Booking)_scenarioContext["midstBooking"];
             Booking midstCreatedBooking = new Booking();
@@ -323,7 +323,7 @@ namespace HotelBooking.StepDefinitions
 
 
         [When(@"the user deletes the last booking of multiple newly-created bookings")]
-        public void WhenTheUserDeletesTheLastBookingOfMultipleNewly_CreatedBookings()
+        private void WhenTheUserDeletesTheLastBookingOfMultipleNewly_CreatedBookings()
         {
             Booking lastReferenceBooking = (Booking)_scenarioContext["lastBooking"];
             Booking lastCreatedBooking = new Booking();
@@ -342,7 +342,7 @@ namespace HotelBooking.StepDefinitions
 
 
         [Then(@"the last booking in the multiple newly-created bookings should be removed from the booking listing")]
-        public void ThenTheLastBookingInTheMultipleNewly_CreatedBookingsShouldBeRemovedFromTheBookingListing()
+        private void ThenTheLastBookingInTheMultipleNewly_CreatedBookingsShouldBeRemovedFromTheBookingListing()
         {
             Booking lastReferenceBooking = (Booking)_scenarioContext["lastBooking"];
             Booking lastCreatedBooking = new Booking();
@@ -360,7 +360,7 @@ namespace HotelBooking.StepDefinitions
         }
 
         [When(@"the user creates multiple duplicate valid bookings")]
-        public void WhenTheUserCreatesMultipleDuplicateValidBookings(Table table)
+        private void WhenTheUserCreatesMultipleDuplicateValidBookings(Table table)
         {
             Booking referenceBooking = table.CreateInstance<Booking>();
 
@@ -388,7 +388,7 @@ namespace HotelBooking.StepDefinitions
         }
 
         [Then(@"all newly-created duplicate bookings should be added to the booking listing")]
-        public void ThenAllNewly_CreatedDuplicateBookingsShouldBeAddedToTheBookingListing()
+        private void ThenAllNewly_CreatedDuplicateBookingsShouldBeAddedToTheBookingListing()
         {
             Booking referenceBooking = (Booking)_scenarioContext["Booking"];
             List<Booking> createdBookings = new List<Booking>();
@@ -418,7 +418,7 @@ namespace HotelBooking.StepDefinitions
         }
 
         [When(@"the user deletes those newly-created duplicate valid bookings")]
-        public void WhenTheUserDeletesThoseNewly_CreatedDuplicateValidBookings()
+        private void WhenTheUserDeletesThoseNewly_CreatedDuplicateValidBookings()
         {
             Booking referenceBooking = (Booking)_scenarioContext["Booking"];
             List<Booking> createdBookings = new List<Booking>();
@@ -439,7 +439,7 @@ namespace HotelBooking.StepDefinitions
         }
 
         [Then(@"all newly-created duplicate bookings should be removed from the booking listing")]
-        public void ThenAllNewly_CreatedDuplicateBookingsShouldBeRemovedFromTheBookingListing()
+        private void ThenAllNewly_CreatedDuplicateBookingsShouldBeRemovedFromTheBookingListing()
         {
             Booking referenceBooking = (Booking)_scenarioContext["Booking"];
             List<Booking> createdBookings = new List<Booking>();
@@ -457,14 +457,14 @@ namespace HotelBooking.StepDefinitions
         }
 
         [BeforeTestRun]
-        public static void BeforeTestRun()
+        private static void BeforeTestRun()
         {
             Service.Instance.ValueRetrievers.Register(new BookingCheckinDateValueRetriever());
             Service.Instance.ValueRetrievers.Register(new BookingCheckoutDateValueRetriever());
         }
 
         [BeforeFeature]
-        public static void InitializeTestReport(FeatureContext _featureContext)
+        private static void InitializeTestReport(FeatureContext _featureContext)
         {
             TestReport.InitializeTestReport();
 
@@ -472,20 +472,20 @@ namespace HotelBooking.StepDefinitions
         }
 
         [BeforeScenario]
-        public void AddScenarioToTest(ScenarioContext _scenarioContext)
+        private void AddScenarioToTest(ScenarioContext _scenarioContext)
         {
             TestReport.AddScenarioToTest(_scenarioContext);
         }
 
         [AfterStep]
-        public void AddScenarioStepTestResultToTest(ScenarioContext _scenarioContext)
+        private void AddScenarioStepTestResultToTest(ScenarioContext _scenarioContext)
         {
             TestReport.AddScenarioStepToTest(_scenarioContext); 
             TestReport.AddScenarioStepTestResultToTest(_scenarioContext);
         }
 
         [AfterScenario]
-        public void AddScenarioTestResultToTestAndCleanUpBookingForm(ScenarioContext _scenarioContext)
+        private void AddScenarioTestResultToTestAndCleanUpBookingForm(ScenarioContext _scenarioContext)
         {
             TestReport.AddTestResultToTest(_scenarioContext);
 
@@ -505,7 +505,7 @@ namespace HotelBooking.StepDefinitions
         }
 
         [AfterFeature]
-        public static void FinalizeTestReport()
+        private static void FinalizeTestReport()
         {
             TestReport.FinalizeTestReport();
         }
