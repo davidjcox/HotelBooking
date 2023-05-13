@@ -32,6 +32,58 @@ namespace HotelBooking.PageObjects
 
 
         /// <summary>
+        /// Identify a booking object property by current property name and try to set its value to the new booking object
+        /// </summary>
+        /// <param name="booking"></param>
+        /// <param name="propertyName"></param>
+        /// <param name="propertyValue"></param>
+        /// <exception cref="ArgumentException"></exception>
+        /// <returns>Booking booking</returns>
+        internal Booking FindPropertyAndSetValue(Booking booking, string propertyName, string propertyValue)
+        {
+            //Identify a booking object property by current property name and try to set its value to the new booking object
+            switch (Type.GetTypeCode(booking.GetType().GetProperty(propertyName)?.PropertyType))
+            {
+                case TypeCode.Decimal:
+                    if (Decimal.TryParse(propertyValue, out Decimal DecimalPropertyValue))
+                    {
+                        booking.GetType().GetProperty(propertyName)?.GetSetMethod()?.Invoke(booking, new object[] { DecimalPropertyValue });
+                    }
+                    else
+                    {
+                        throw new ArgumentException("Unparseable Decimal attribute.");
+                    }
+                    break;
+                case TypeCode.Boolean:
+                    if (Boolean.TryParse(propertyValue, out bool BooleanPropertyValue))
+                    {
+                        booking.GetType().GetProperty(propertyName)?.GetSetMethod()?.Invoke(booking, new object[] { BooleanPropertyValue });
+                    }
+                    else
+                    {
+                        throw new ArgumentException("Unparseable Boolean attribute.");
+                    }
+                    break;
+                case TypeCode.DateTime:
+                    if (DateTime.TryParse(propertyValue, out DateTime DateTimePropertyValue))
+                    {
+                        booking.GetType().GetProperty(propertyName)?.GetSetMethod()?.Invoke(booking, new object[] { DateTimePropertyValue.Date });
+                    }
+                    else
+                    {
+                        throw new ArgumentException("Unparseable DateTime attribute.");
+                    }
+                    break;
+                default:
+                    booking.GetType().GetProperty(propertyName)?.GetSetMethod()?.Invoke(booking, new object[] { propertyValue });
+                    break;
+            }
+
+            return booking;
+        }
+
+
+        /// <summary>
         /// Gets all Hotel booking form bookings, if bookings exist, otherwise returns null. 
         /// </summary>
         /// <returns>List<Booking> or null</Booking></returns>
@@ -63,42 +115,7 @@ namespace HotelBooking.PageObjects
                     string propertyValue = propertyValues[property].Text;
 
                     //Identify a booking object property by current property name and try to set its value to the new booking object
-                    switch (Type.GetTypeCode(booking.GetType().GetProperty(propertyName)?.PropertyType))
-                    {
-                        case TypeCode.Decimal:
-                            if (Decimal.TryParse(propertyValue, out Decimal DecimalPropertyValue))
-                            {
-                                booking.GetType().GetProperty(propertyName)?.GetSetMethod()?.Invoke(booking, new object[] { DecimalPropertyValue });
-                            }
-                            else
-                            {
-                                throw new ArgumentException("Unparseable Decimal attribute.");
-                            }
-                            break;
-                        case TypeCode.Boolean:
-                            if (Boolean.TryParse(propertyValue, out bool BooleanPropertyValue))
-                            {
-                                booking.GetType().GetProperty(propertyName)?.GetSetMethod()?.Invoke(booking, new object[] { BooleanPropertyValue });
-                            }
-                            else
-                            {
-                                throw new ArgumentException("Unparseable Boolean attribute.");
-                            }
-                            break;
-                        case TypeCode.DateTime:
-                            if (DateTime.TryParse(propertyValue, out DateTime DateTimePropertyValue))
-                            {
-                                booking.GetType().GetProperty(propertyName)?.GetSetMethod()?.Invoke(booking, new object[] { DateTimePropertyValue.Date });
-                            }
-                            else
-                            {
-                                throw new ArgumentException("Unparseable DateTime attribute.");
-                            }
-                            break;
-                        default:
-                            booking.GetType().GetProperty(propertyName)?.GetSetMethod()?.Invoke(booking, new object[] { propertyValue });
-                            break;
-                    }
+                    booking = FindPropertyAndSetValue(booking, propertyName, propertyValue);
                 }
 
                 bookings.Add(booking);

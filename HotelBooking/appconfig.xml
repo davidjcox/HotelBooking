@@ -4,7 +4,7 @@
   <!-- options: 'chrome', 'firefox', 'edge' -->
   <WaitTimeoutInSeconds>30</WaitTimeoutInSeconds>
   <!-- duration of wait timeout for element(s) finding -->
-  <TestUrl></TestUrl>
+  <TestUrl>http://hotel-test.equalexperts.io/</TestUrl>
   <!-- starting URL for test project -->
   <NumberOfDuplicateBookings>11</NumberOfDuplicateBookings>
   <!-- number of duplicate bookings to create in the duplicate bookings scenarios, to a maximum of 4294967295-->
