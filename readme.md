@@ -1,10 +1,10 @@
-﻿# Hotel Booking test project
+﻿# Hotel Booking test project #
 
 The Hotel Booking test project uses SpecFlow and Selenium to evaluate functionality of the [Hotel booking form](http://hotel-test.equalexperts.io). 
 
 ***
 
-# Getting Started #
+## Getting Started ##
 
 This test project is developed in C# targeting .Net Core, but is compatible with .Net Standard. It was developed and tested on Windows 10 with latest 
 versions of the three major browsers: Chrome, Firefox, and Edge. The best experience is expected to be in that environment. Selenium depends on browser
@@ -16,7 +16,7 @@ This test project is designed to be a self-contained deployment, so that it does
 location in the filesystem, and operates relative to itself. To execute it manually, save it to a location, open it in Visual Studio, and execute it
 according to the following instructions.
 
-# Build and Test #
+## Build and Test ##
 
 1. Open the project solution in Visual Studio
 2. Right-click on the solution in Solution Explorer pane to open the context menu and select the **Restore NuGet Packages** option
